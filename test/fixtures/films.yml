@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  runtime: 1
+  cover: MyString
+  release_date: 2014-02-18
+  plot: MyText
+
+two:
+  title: MyString
+  runtime: 1
+  cover: MyString
+  release_date: 2014-02-18
+  plot: MyText
