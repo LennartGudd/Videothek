@@ -13,4 +13,6 @@ has_many :directors, through: :film_directors
 
 has_many :rentals
 has_many :users, through: :rentals
+
+letsrate_rateable "rating"
 end

@@ -8,7 +8,7 @@
       <th>Cover</th>
       <th>Release date</th>
       <th>Plot</th>
-      <th></th>
+      <th>Rating</th>
       <th></th>
       <th></th>
     </tr>
@@ -22,6 +22,7 @@
         <td><%= film.cover %></td>
         <td><%= film.release_date %></td>
         <td><%= film.plot %></td>
+	<td><%= rating_for film, "rating" %></td>
         <td><%= link_to 'Show', film %></td>
         <td><%= link_to 'Edit', edit_film_path(film) %></td>
         <td><%= link_to 'Destroy', film, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,6 +31,14 @@
   </tbody>
 </table>
 
+<br>
+<% if current_user %>
+Welcome <%= current_user.email %>
+<% else %>
+<%= link_to 'Sign in', new_user_session_path %>
+<%= link_to 'Sign up', new_user_registration_path %>
+<% end %>
+<br>
 <br>
 
 <%= link_to 'New Film', new_film_path %>

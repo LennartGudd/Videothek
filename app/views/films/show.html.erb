@@ -25,5 +25,9 @@
   <%= @film.plot %>
 </p>
 
+Rating : <%= rating_for @film, "rating" %>
+<br>
+
+
 <%= link_to 'Edit', edit_film_path(@film) %> |
 <%= link_to 'Back', films_path %>
