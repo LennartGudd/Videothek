@@ -35,7 +35,29 @@
 
 <%= link_to 'New Film', new_film_path %>
 
+<br>
+<!--<form action="films" method="get">
+<p>Search <input type="text" name="search" size="30">
+<input type="submit" value="Search" name="button1"></p>
+</form>
+-->
+<br>
+
+<%= form_tag("/films", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br>
+
+<% test = params[:q] %>
+<% i = Spotlite::Search.new(test).movies %>
+<%= i %>
+
+
 <br><br>
+
 
 <% if current_user == nil%>
 Damit Sie bewerten können, müssen Sie sich einloggen. <br>
