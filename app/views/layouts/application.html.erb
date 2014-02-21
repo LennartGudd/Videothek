@@ -49,10 +49,22 @@
           <a class="brand" href="#">Videothek</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Films", "/films"  %></li>
+              <!-- <li><%= link_to "Link2", "/path2"  %></li>
+              <li><%= link_to "Link3", "/path3"  %></li> -->
             </ul>
+
+		<ul class="nav nav-pills pull-right">
+	      <% if current_user %>
+	         <li>Logged in as: <%= current_user.email %></li>
+	         <li><%= link_to 'log-out', destroy_user_session_path, method: :delete %></li>		
+		<% else %>
+		 <li><%= link_to 'Sign in', new_user_session_path %></li>
+		 <li><%= link_to 'Sign up', new_user_registration_path %></li>
+		
+		<% end %>
+		</ul>
+
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -64,9 +76,9 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Films", "/films"  %></li>
+              <!-- <li><%= link_to "Link2", "/path2"  %></li>
+              <li><%= link_to "Link3", "/path3"  %></li> -->
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

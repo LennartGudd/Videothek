@@ -9,4 +9,6 @@ has_many :films, through: :rentals
 
 has_many :comments
 has_many :films, through: :comments
+
+letsrate_rater
 end
