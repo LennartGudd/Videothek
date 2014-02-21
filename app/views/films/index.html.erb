@@ -32,13 +32,24 @@
 </table>
 
 <br>
-<% if current_user %>
-Welcome <%= current_user.email %>
-<% else %>
+
+<%= link_to 'New Film', new_film_path %>
+
+<br><br>
+
+<% if current_user == nil%>
+Damit Sie bewerten können, müssen Sie sich einloggen. <br>
 <%= link_to 'Sign in', new_user_session_path %>
 <%= link_to 'Sign up', new_user_registration_path %>
 <% end %>
-<br>
-<br>
 
-<%= link_to 'New Film', new_film_path %>
+
+<!--
+<% if current_user %>
+Logged in as: <%= current_user.email %>
+<% else %>
+Damit Sie bewerten können, müssen Sie sich einloggen.
+<%= link_to 'Sign in', new_user_session_path %>
+<%= link_to 'Sign up', new_user_registration_path %>
+<% end %>
+-->
