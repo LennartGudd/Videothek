@@ -1,6 +1,13 @@
 Videothek::Application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users
+  
+
+	devise_for :users, controllers: {registrations: "registrations"}
+		
+	resources :maintopics do
+		resources :subtopics
+	end
+
   resources :comments
 
   resources :films
