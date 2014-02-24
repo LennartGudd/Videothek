@@ -1,4 +1,5 @@
 class Film < ActiveRecord::Base
+validates_uniqueness_of :title, :scope => :release_date
 has_many :film_categories
 has_many :categories, through: :film_categories
 

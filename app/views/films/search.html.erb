@@ -1,0 +1,38 @@
+<!--<form action="films" method="get">
+<p>Search <input type="text" name="search" size="30">
+<input type="submit" value="Search" name="button1"></p>
+</form>
+-->
+<br>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br>
+
+<% parameter = params[:q] %>
+<% i = Spotlite::Search.new(parameter).movies %>
+<table>
+<thead>
+     <tr>
+      <th>Title</th>
+      <th>Runtime</th>
+      <th>Details</th>
+     </tr>
+</thead>
+<tbody>
+<% i.each do |filmarray| %>
+<% film = Film.create(:cover => filmarray.poster_url, :title => filmarray.title, :runtime => filmarray.runtime, :release_date => filmarray.release_date, :plot => filmarray.description) %>
+
+
+<tr><td align = left><%= filmarray.title %></td>
+    <td align = center><%= filmarray.runtime %></td>
+    <td><%= link_to 'Show', film %></td>
+</tr>
+<% end %>
+</tbody>
+</table>
+

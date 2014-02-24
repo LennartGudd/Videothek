@@ -8,6 +8,10 @@ skip_before_filter :verify_authenticity_token
     @films = Film.all
   end
 
+  # GET /search
+  def search
+  end
+
   # GET /films/1
   # GET /films/1.json
   def show
