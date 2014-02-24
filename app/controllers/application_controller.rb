@@ -12,4 +12,14 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource_or_scope)
       request.referrer
   end
+
+	#save additional devisefildes
+	before_filter :configure_permitted_parameters, if: :devise_controller?
+
+	def configure_permitted_parameters
+		devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :name, :firstname, :birthday, :street, :city, :zipcode) }
+	end
+
+	protect_from_forgery with: :exception
+
 end
