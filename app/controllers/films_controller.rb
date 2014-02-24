@@ -66,7 +66,13 @@ skip_before_filter :verify_authenticity_token
     end
   end
 
-  private
+  def add_new_comment
+    film = Film.find(params[:id])
+    ca = {:title => params[:comment][:title], :comment => params[:comment][:comment], :user_id => current_user.id}
+    film.comments.create(ca)
+    redirect_to :action => :show, :id => film
+  end  
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_film
       @film = Film.find(params[:id])
@@ -76,4 +82,5 @@ skip_before_filter :verify_authenticity_token
     def film_params
       params.require(:film).permit(:title, :runtime, :cover, :release_date, :plot)
     end
+
 end

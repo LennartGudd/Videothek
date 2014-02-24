@@ -16,4 +16,7 @@ has_many :rentals
 has_many :users, through: :rentals
 
 letsrate_rateable "rating"
+acts_as_commentable
+
+resourcify
 end

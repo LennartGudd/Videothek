@@ -1,11 +1,20 @@
 Videothek::Application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users
+  
+
+	devise_for :users, controllers: {registrations: "registrations"}
+		
+	resources :maintopics do
+		resources :subtopics
+	end
+
   resources :comments
 
   resources :films
   get '/search' => 'films#search'
 
+  
+  match "/films/add_new_comment" => "films#add_new_comment", :as => "add_new_comment_to_films", :via => [:post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
