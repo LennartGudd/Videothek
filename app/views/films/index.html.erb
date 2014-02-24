@@ -1,13 +1,13 @@
-<h1>Listing films</h1>
+<h1>Liste der Filme</h1>
 
 <table>
   <thead>
     <tr>
       <th>Title</th>
       <th>Runtime</th>
-      <th>Cover</th>
+      <!-- <th>Cover</th> -->
       <th>Release date</th>
-      <th>Plot</th>
+      <!-- <th>Plot</th> -->
       <th>Rating</th>
       <th></th>
       <th></th>
@@ -19,9 +19,9 @@
       <tr>
         <td><%= film.title %></td>
         <td><%= film.runtime %></td>
-        <td><%= film.cover %></td>
+        <!-- <td><%= film.cover %></td> -->
         <td><%= film.release_date %></td>
-        <td><%= film.plot %></td>
+        <!-- <td><%= film.plot %></td> -->
 	<td><%= rating_for film, "rating" %></td>
         <td><%= link_to 'Show', film %></td>
 	
@@ -44,10 +44,10 @@
 </table>
 
 <br>
-
-<%= link_to 'New Film', new_film_path %>
-
-<br><br>
+  <% if user_session != nil %>
+    <% if current_user.has_role? :admin %>
+  <%= link_to 'New Film', new_film_path %>
+  <% end %><% end %>
 
 <% if current_user == nil%>
 Damit Sie bewerten können, müssen Sie sich einloggen. <br>

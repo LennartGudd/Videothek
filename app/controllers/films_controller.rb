@@ -61,7 +61,13 @@ class FilmsController < ApplicationController
     end
   end
 
-  private
+  def add_new_comment
+    film = Film.find(params[:id])
+    ca = {:title => params[:comment][:title], :comment => params[:comment][:comment], :user_id => current_user.id}
+    film.comments.create(ca)
+    redirect_to :action => :show, :id => film
+  end  
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_film
       @film = Film.find(params[:id])
@@ -71,4 +77,5 @@ class FilmsController < ApplicationController
     def film_params
       params.require(:film).permit(:title, :runtime, :cover, :release_date, :plot)
     end
+
 end
