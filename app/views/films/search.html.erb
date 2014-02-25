@@ -32,28 +32,38 @@
 <% filmarray.cast[0..1].map do |hash| %>
 <% actor_name = {name: hash[:name]} %>
  
-<% test = Actor.find_by name: actor_name[:name] %> 
-<% if test == nil %> 
+<% act_name = Actor.find_by name: actor_name[:name] %> 
+<% if act_name == nil %> 
 
 <% actor = Actor.create(:name => actor_name[:name])%>
 <% FilmActor.create(:film_id => film.id, :actor_id => actor.id) %>
-<% else FilmActor.create(:film_id => film.id, :actor_id => test.id) %>
+<% else FilmActor.create(:film_id => film.id, :actor_id => act_name.id) %>
 <% end %>
 <% end %>
 
 <% filmarray.directors.map do |hash| %>
 <% director_name = {name: hash[:name]} %>
 
-<% test2 = Director.find_by name: director_name[:name] %>
-<% if test2 == nil %>
+<% dir_name = Director.find_by name: director_name[:name] %>
+<% if dir_name == nil %>
 
 <% director = Director.create(:name => director_name[:name]) %>
 <% FilmDirector.create(:film_id => film.id, :director_id => director.id) %>
-<% else FilmDirector.create(:film_id => film.id, :director_id => test2.id) %>
+<% else FilmDirector.create(:film_id => film.id, :director_id => dir_name.id) %>
 <% end %>
 <% end %>
 
 
+<%filmarray.genres.each do |category_name| %>
+
+<% cat_name = Category.find_by genre: category_name %>
+<% if cat_name == nil %>
+
+<% category = Category.create(:genre => category_name) %>
+<% FilmCategory.create(:film_id => film.id, :category_id => category.id) %>
+<% else FilmCategory.create(:film_id => film.id, :category_id => cat_name.id) %>
+<% end %>
+<% end %>
 
 <tr><td align = left><%= filmarray.title %></td>
     <td align = center><%= filmarray.runtime %></td>
