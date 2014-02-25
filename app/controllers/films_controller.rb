@@ -8,16 +8,6 @@ skip_before_filter :verify_authenticity_token
     @films = Film.all
   end
 
-  # GET /directors
-  def index
-    @directors = Director.all
-  end
-
-  # GET /actors
-  def index
-    @actors = Actor.all
-  end
-
   # GET /films/1
   # GET /films/1.json
   def show

@@ -17,6 +17,18 @@
   <td><%= @film.release_date %></td>
 </tr>
 <tr>
+  <td><strong>Actors:</strong>
+  <td><% @film.actors.each do |actor| %>
+  <%= actor.name %>,
+  <% end %></td>
+</tr>
+<tr>
+  <td><strong>Directors:</strong>
+  <td><% @film.directors.each do |director| %>
+  <%= director.name %>,
+  <% end %></td>
+</tr>
+<tr>
   <td><strong>Plot:</strong></td>
   <td><%= @film.plot %></td>
 </tr>
