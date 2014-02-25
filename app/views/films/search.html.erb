@@ -32,6 +32,11 @@
     <td align = center><%= filmarray.runtime %></td>
     <td><%= link_to 'Show', film %></td>
 </tr>
+<% director_name = filmarray.directors.first[:name] %>
+<% test = Director.find_by name: director_name %>
+<% if test == nil %>
+<% director = Director.create(:name => director_name) %>
+<% end %>
 <% end %>
 </tbody>
 </table>
