@@ -29,6 +29,12 @@
   <% end %></td>
 </tr>
 <tr>
+  <td><strong>Genres:</strong>
+  <td><% @film.categories.each do |genre| %>
+  <%= genre.genre %>,
+  <% end %></td>
+</tr>
+<tr>
   <td><strong>Plot:</strong></td>
   <td><%= @film.plot %></td>
 </tr>
