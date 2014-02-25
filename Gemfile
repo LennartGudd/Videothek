@@ -52,4 +52,11 @@ gem 'letsrate'
 gem 'spotlite'
 gem 'cancan'
 gem 'rolify'
+
+group :dev, :tests do
+	gem 'rspec'
+	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'guard-rspec'
+end
 gem 'acts_as_commentable'
