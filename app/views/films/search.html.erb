@@ -24,15 +24,46 @@
      </tr>
 </thead>
 <tbody>
+
+
 <% i.each do |filmarray| %>
 <% film = Film.create(:cover => filmarray.poster_url, :title => filmarray.title, :runtime => filmarray.runtime, :release_date => filmarray.release_date, :plot => filmarray.description) %>
+
+<% filmarray.cast[0..1].map do |hash| %>
+<% actor_name = {name: hash[:name]} %>
+ 
+<% test = Actor.find_by name: actor_name[:name] %> 
+<% if test == nil %> 
+
+<% actor = Actor.create(:name => actor_name[:name])%>
+<% FilmActor.create(:film_id => film.id, :actor_id => actor.id) %>
+<% else FilmActor.create(:film_id => film.id, :actor_id => test.id) %>
+<% end %>
+<% end %>
+
+<% filmarray.directors.map do |hash| %>
+<% director_name = {name: hash[:name]} %>
+
+<% test2 = Director.find_by name: director_name[:name] %>
+<% if test2 == nil %>
+
+<% director = Director.create(:name => director_name[:name]) %>
+<% FilmDirector.create(:film_id => film.id, :director_id => director.id) %>
+<% else FilmDirector.create(:film_id => film.id, :director_id => test2.id) %>
+<% end %>
+<% end %>
+
 
 
 <tr><td align = left><%= filmarray.title %></td>
     <td align = center><%= filmarray.runtime %></td>
-    <td><%= link_to 'Show', film %></td>
+    <td><%= link_to 'Show', film %></td> 
 </tr>
+
 <% end %>
+
+
+
 </tbody>
 </table>
 
