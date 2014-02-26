@@ -43,4 +43,8 @@ Run the test suite for videothek:
 
 --- rspec spec
 
+Projekt auf Heroku:
+
+--- rocky-fjord-1425.herokuapp.com
+
 
