@@ -37,6 +37,7 @@ class RentalsController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /rentals/1
   # PATCH/PUT /rentals/1.json
   def update

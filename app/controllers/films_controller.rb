@@ -67,7 +67,7 @@ skip_before_filter :verify_authenticity_token
     rent = {:film_id => film, :user_id => current_user.id}
     film.rentals.create(rent)
     redirect_to rentals_url
-  end
+    end
 
   def add_new_comment
     film = Film.find(params[:id])
