@@ -58,5 +58,6 @@ group :dev, :tests do
 	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'guard-rspec'
+	gem 'factory_girl_rails'
 end
 gem 'acts_as_commentable'

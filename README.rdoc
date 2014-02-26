@@ -1,27 +1,44 @@
 Run videothek on Ubuntu 12.04:
 
-*apt-get install ruby1.9.1-full
-*apt-get install nodejs
-*apt-get install sqlite
-*apt-get install g++
-*apt-get install libv8-dev
-*apt-get install git-core
-*gem install rails
-*apt-get install libsqlite3-dev
-*gem install sqlite3 -v '1.3.8'
-*git clone https://github.com/LennartGudd/Videothek.git
-*cd Videothek
-*bundle install
-*rake db:setup
-*rails server
-*localhost:3000/films
+* apt-get install ruby1.9.1-full
+
+* apt-get install nodejs
+
+* apt-get install sqlite
+
+* apt-get install g++
+
+* apt-get install libv8-dev
+
+* apt-get install git-core
+
+* gem install rails
+
+* apt-get install libsqlite3-dev
+
+* gem install sqlite3 -v '1.3.8'
+
+* git clone https://github.com/LennartGudd/Videothek.git
+
+* cd Videothek
+
+* bundle install
+
+* rake db:setup
+
+* rails server
+
+* localhost:3000/films
 
 
 Run the test suite for videothek:
 
-*git checkout -b dev
-*bundle install
-*rake db:setup
-*rspec spec
+* git checkout -b dev
+
+* bundle install
+
+* rake db:setup
+
+* rspec spec
 
 
