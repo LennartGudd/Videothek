@@ -1,0 +1,28 @@
+<h1>Your rentals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Film</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rentals.each do |rental| %>
+      <tr>
+        <td>
+	    <% user = User.find_by id: rental.user_id %>
+            <% film = Film.find_by id: rental.film_id %>
+	    <% if user.id == current_user.id %>
+	    <%= film.title %></td>
+        <td><%= rental.user_id %></td>
+        <td><%= link_to 'Return', rental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

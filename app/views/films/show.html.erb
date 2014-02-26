@@ -50,8 +50,20 @@
     <%= link_to 'Edit', edit_film_path(@film) %> |
   <% end %>
 <% end %>
-
-<%= link_to 'Back', films_path %>
+<table>
+<tr>
+<td>
+<% if user_session != nil %>
+<%= form_tag "/films/add_new_rental" do %>
+<%= hidden_field_tag "id", @film.id %>
+<%= submit_tag "Ausleihen" %>
+<% end %>
+<% end %>
+</td></tr>
+<tr><td><br></td></tr>
+<tr>
+<td><%= link_to 'Back', films_path %></td>
+</tr></table>
 
  <% if user_session != nil %> 
    <br><h2>Kommentiere den Film</h2>

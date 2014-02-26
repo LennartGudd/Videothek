@@ -62,6 +62,13 @@ skip_before_filter :verify_authenticity_token
     end
   end
 
+  def add_new_rental
+    film = Film.find(params[:id])
+    rent = {:film_id => film, :user_id => current_user.id}
+    film.rentals.create(rent)
+    redirect_to rentals_url
+  end
+
   def add_new_comment
     film = Film.find(params[:id])
     ca = {:title => params[:comment][:title], :comment => params[:comment][:comment], :user_id => current_user.id}
