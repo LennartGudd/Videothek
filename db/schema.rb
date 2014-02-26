@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223182318) do
+ActiveRecord::Schema.define(version: 20140226125300) do
 
   create_table "actors", force: true do |t|
     t.string   "name"
@@ -113,12 +113,10 @@ ActiveRecord::Schema.define(version: 20140223182318) do
 
   create_table "rentals", force: true do |t|
     t.integer  "film_id"
-    t.date     "rental_date"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "rentals", ["film_id"], name: "index_rentals_on_film_id"
 
   create_table "roles", force: true do |t|
     t.string   "name"
