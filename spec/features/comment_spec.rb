@@ -21,9 +21,9 @@ describe 'Comment' do
 		#write comment
 			fill_in 'comment_title', with: comment.title
 			fill_in 'comment_comment', with: comment.comment
-			click_button 'Schreiben ...'
+			click_button 'Post'
 		
-			expect { click_button 'Schreiben ...' }.to change { Comment.count }.by(1)
+			expect { click_button 'Post' }.to change { Comment.count }.by(1)
 		end
 	end
 end

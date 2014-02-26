@@ -19,7 +19,7 @@ describe 'Sign up' do
 			click_button 'Sign in'
 			first(:link, 'Show').click
 			
-			click_button 'Ausleihen'
+			click_button 'Rent'
 			page.should have_content 'Your rentals'
 		end
 	end
