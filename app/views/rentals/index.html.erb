@@ -19,7 +19,6 @@
             <% film = Film.find_by id: rental.film_id %>
 	    <% if user.id == current_user.id %>
 	    <%= film.title %></td>
-        <td><%= rental.user_id %></td>
         <td><%= link_to 'Return', rental, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
