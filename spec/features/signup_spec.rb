@@ -33,7 +33,7 @@ context 'existing user' do
 	it 'allows to sign in' do
         	click_link 'Sign in'
 		fill_in "user_email", with: user.email
-		fill_in 'user_password', with: 'testtest'
+		fill_in 'user_password', with: user.password
 		click_button 'Sign in'
 
    page.should have_content 'Signed in successfully.'
@@ -44,7 +44,7 @@ context 'existing user' do
 	it 'allows to sign out' do
 		click_link 'Sign in'
         fill_in "user_email", with: user.email
- 		fill_in "user_password", with: 'testtest'
+ 		fill_in "user_password", with: user.password
 		click_button 'Sign in'
 
 		click_link 'log-out'
