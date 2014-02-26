@@ -1,4 +1,8 @@
 Videothek::Application.routes.draw do
+  resources :rentals
+  match "/films/add_new_rental" => "films#add_new_rental", :as =>
+"add_new_rental_to_users", :via => [:post]
+
   post '/rate' => 'rater#create', :as => 'rate'
   
 
@@ -12,7 +16,6 @@ Videothek::Application.routes.draw do
 
   resources :films
   get '/search' => 'films#search'
-
   
   match "/films/add_new_comment" => "films#add_new_comment", :as => "add_new_comment_to_films", :via => [:post]
 
